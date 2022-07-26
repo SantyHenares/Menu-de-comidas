@@ -49,19 +49,30 @@ botonCarrito.onclick = () => {
     const almacenado = JSON.parse(localStorage.getItem("listaDeCompra"));
     const listaCarrito = [];
 
-    for (const objetos of almacenado) {
-        listaCarrito.push(new listaDeCompra(objetos));
-        aPagar = aPagar + objetos.total;
+    if (almacenado.length != 0) {
+        for (const objetos of almacenado) {
+            listaCarrito.push(new listaDeCompra(objetos));
+            aPagar = aPagar + objetos.total;
+        }
+    } else {
+        aPagar = 0;
     }
+
     Swal.fire({
         title: `El total a pagar es de ${aPagar}.`,
-        icon: "success",
-        // html: '<div id="carrito-contenedor"> </div>',
+        html: '<div id="carrito-contenedor"> </div>',
         confirm: "Ok",
+        showCancelButton: true,
+        cancelButtonText: 'Vaciar carrito.',
+    }).then((result) => {
+        if (result.isDismissed) {
+            arrayProductos.splice(0, arrayProductos.length);
+            guardarLocal("listaDeCompra", JSON.stringify(arrayProductos));
+        }
     })
-}
 
-console.log(arrayProductos);
+    renderProductosCarrito(almacenado);
+}
 
 const nuestrosProductos = document.getElementById('listado');
 
@@ -91,3 +102,21 @@ const listadoDeProductos = async () => {
 }
 
 listadoDeProductos()
+
+const renderProductosCarrito = (carritoDeCompras) => {
+    const contenedor = document.getElementById('carrito-contenedor');
+
+    contenedor.innerHTML = "";
+
+    carritoDeCompras.forEach(producto => {
+        const div = document.createElement('div');
+        div.classList.add('productoEnCarrito');
+        div.innerHTML = `<div class=" d-flex justify-content-between"> 
+                        <p>${producto.nombre}</p>
+                        <p>Cantidad:${producto.cantidad}</p>
+                        <p>Precio:${producto.total}</p>
+                        </div>
+                      `
+        contenedor.appendChild(div);
+    });
+};
