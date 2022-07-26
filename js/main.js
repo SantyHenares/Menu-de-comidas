@@ -56,7 +56,7 @@ botonCarrito.onclick = () => {
     Swal.fire({
         title: `El total a pagar es de ${aPagar}.`,
         icon: "success",
-        html: '<div id="carrito-contenedor"> </div>',
+        // html: '<div id="carrito-contenedor"> </div>',
         confirm: "Ok",
     })
 }
@@ -66,7 +66,7 @@ console.log(arrayProductos);
 const nuestrosProductos = document.getElementById('listado');
 
 const listadoDeProductos = async () => {
-    const resp = await fetch('../stock.json')
+    const resp = await fetch('public/stock.json')
     const data = await resp.json()
 
     data.forEach(product => {
