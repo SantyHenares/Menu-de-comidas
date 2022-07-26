@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "Carrot Cake",
+        "precio": 250,
+        "descripcion": "Torta de zanahoria con glase y frutas."
+    },
+    {
+        "id": 2,
+        "nombre": "Chicken Little",
+        "precio": 900,
+        "descripcion": "Salteado de pollo con verduras."
+    },
+    {
+        "id": 3,
+        "nombre": "Mustard Pork",
+        "precio": 300,
+        "descripcion": "Costilla de cerdo a la mostaza."
+    },
+    {
+        "id": 4,
+        "nombre": "Pancake For Two",
+        "precio": 250,
+        "descripcion": "Torre de panqueques con dulce de leche."
+    },
+    {
+        "id": 5,
+        "nombre": "Rainbow Salad",
+        "precio": 350,
+        "descripcion": "Pollo con ensalada y palta."
+    },
+    {
+        "id": 6,
+        "nombre": "Salad Fingers",
+        "precio": 150,
+        "descripcion": "Ensalada de pimiento y tomate."
+    }
+]
