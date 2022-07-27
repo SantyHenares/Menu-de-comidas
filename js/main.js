@@ -1,5 +1,5 @@
 let botonCarrito = document.getElementById("carrito");
-let carrito = 0, cantidad = 0, precio = 0, ticket, falsy;
+let carrito = 0, cantidad = 0, precio = 0;
 const arrayProductos = [];
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
@@ -13,7 +13,6 @@ class listaDeCompra {
 
 function evento(nombre, producto) {
     nombre.onclick = () => {
-        cantidad = 0;
         Swal.fire({
             title: '¿Cuántos quéres comprar?',
             input: 'text',
